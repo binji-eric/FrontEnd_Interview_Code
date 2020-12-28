@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Delagation</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div class="box" id="box" onclick="func(event)">
+		<input type="button" name="" id="add" value ="添加">
+		<input type="button" name="" id="remove" value="移除">
+		<input type="button" name="" id="update" value="更新">
+	</div>
+
+	<script type="text/javascript">
+		// var container = document.getElementsByClassName('box')[0];
+		// var container = document.getElementById('box')
+		 // 方法1
+		// container.onclick = function(e) {
+		// 	var target = e.target;
+		// 	if(target.nodeName.toLowerCase() == 'input') {
+		// 		alert(target.value);
+		// 	}
+		// }
+
+		// 方法2
+		// container.addEventListener('click', function(e) {
+		// 	var target = e.target;
+		// 	if(target.nodeName.toLowerCase() == 'input') {
+		// 		alert(target.value);
+		// 	}
+		// });
+
+		// 方法3
+		var func = function(e) {
+			var target = e.target;
+			if(target.nodeName.toLowerCase() == 'input') {
+				// console.log(target)
+				alert(target.value);
+			}
+		}
+
+		
+	</script>
+</body>
+</html>

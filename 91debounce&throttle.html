@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>debounce&throttle test</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div id="myDiv" style="width: 100px; height: 200px; background-color: green">
+		<h1>This is H1</h1>
+		<input id="myInput"/>
+	</div>
+	<script type="text/javascript">
+		let element = document.getElementById('myInput')
+		element.onkeyup = debounce(function() {
+			console.log(element.value)
+		}, 1000)
+
+		function debounce(func, delay, first) {
+	      let timer = null;
+	      return () => {
+	      	const args = arguments;   
+	      	if(!timer && first) {
+	      		first = false
+	      		func.call(this,...args)
+	      	}
+            else if(timer) {
+                 clearTimeout(timer);
+             }
+             timer = setTimeout(() => {
+                    func.apply(this, args)    
+              }, delay)
+	      }
+		}
+		function throttle(func, delay) {
+			let isRun = false;
+
+			return () => {
+				const args = arguments;
+				if(isRun) {
+					return;
+				}
+				isRun = true;
+				setTimeout(() => {
+					func.apply(this, args)
+					isRun = false;
+				}, delay)
+			}
+		}
+	</script>
+</body>
+</html>

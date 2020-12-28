@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue Binding</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<!-- 1. 把数据渲染到表单元素中 -->
+   	<!-- 2. 当你修改数据的时候，表单元素的值发生改变，视图需要更新 -->
+   	<!-- 3. 当你使用表单元素的时候，你在修改元素的值，对应的数据也要发生改变 -->
+	<input type="text" id="myInput">
+	<h5 id="myText"></h5>
+	<script type="text/javascript">
+		const input = document.getElementById('myInput');
+		const text = document.getElementById('myText');
+		
+		// vue2 Object.defineProperty()
+		// function defineReactive(obj, key) {
+		// 	Object.defineProperty(obj, key, {
+		// 		get: function() {
+					// 当获取msg属性值时触发
+		// 			console.log('get method!', key);
+		// 			return data[key];
+		// 		},
+					// 当设置msg属性值时触发
+		// 		set: function(newValue) {
+		// 			console.log('set Method', key, newValue);
+		// 			data[key] = newValue;
+		// 			input.value = newValue;
+		// 			text.innerText = newValue;
+		// 		}
+		// 	})
+		// }
+			// 2.1 监听 data中的msg的值改变  观察 data中的msg的值改变  最终监听的是vm的msg属性变化
+     		// 2.2 如果 数据改变  修改视图
+		// const data = {msg: 'Hi vue!'};
+		// const vm = {};
+		// defineReactive(vm, 'msg');
+			// 3. 监听 表单元素 的值改变事件  修改数据即可（上面已经实现数据驱动视图）
+		// input.addEventListener('input', function(e) {
+		// 	vm['msg'] = e.target.value;
+		// });
+
+		// // 初始化
+		// (function(){
+		// 	input.value = vm['msg'];
+		// 	text.innerText = vm['msg'];
+		// })();
+		// setTimeout(()=> {
+		// 	vm['msg'] = 'Hi React';
+		// }, 5000);
+
+		// vue3 new Proxy
+		function defineReactive(target) {
+			return new Proxy(target, {
+				get: function(target, key) {
+					console.log('get Method');
+					return Reflect.get(target, key);
+				},
+				set: function(target, key, newValue) {
+					console.log('set Method');
+					Reflect.set(target, key, newValue);
+					input.value = newValue;
+					text.innerText = newValue;
+				}
+			})
+		}
+		const data = {msg: 'Hi vue'};
+		const vm = defineReactive(data);
+
+		input.addEventListener('input', function(e) {
+			vm['msg'] = e.target.value;
+		});
+
+		// 初始化
+		(function(){
+			input.value = vm['msg'];
+			text.innerText = vm['msg'];
+		})();
+		setTimeout(()=> {
+			vm['msg'] = 'Hi React';
+		}, 5000);
+
+	</script>
+</body>
+</html>

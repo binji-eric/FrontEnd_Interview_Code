@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	function addScript(url){
+            var scpt = document.createElement('script');
+            scpt.src = url;
+            document.body.appendChild(scpt);
+        }
+        function person(dt){
+        	console.log(typeof dt);
+            // document.open();
+            // console.log(JSON.parse(dt));
+            const content = `名字是${dt.name}，年龄是${dt.age}`
+            // document.write(content);
+            // document.close();
+            window.alert(content);
+            console.log(dt)
+        }
+
+        window.onload=function(){
+            addScript('http://localhost:3000/callback=person')
+        }
+</script>
+</html>

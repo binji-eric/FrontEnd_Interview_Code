@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#bigbox{
+			width: 200px;
+			height: auto;
+			background: black;
+			border-radius: 20px;
+			padding: 10px;
+		}
+		.box{
+			width: 160px;
+			height: 160px;
+			margin: 0 auto;
+			margin-top: 10px;
+			border-radius:50%;
+			border: 5px solid gray;
+			background: black;
+		}
+	</style>
+</head>
+<body>	
+	<div id="bigbox">
+		<div class="box" id="redbox"></div>
+		<div class="box" id="yellowbox"></div>
+		<div class="box" id="greenbox"></div>
+	</div>
+	<script>
+		var red=document.getElementById('redbox');
+		var yellow=document.getElementById('yellowbox');
+		var green=document.getElementById('greenbox');
+		
+		function changeColor(t){
+			return new Promise((resolve,reject)=>{
+				setTimeout(resolve,t)
+			})
+		};
+		// promise 版本
+		
+		// (function change(){
+		// 	red.style.backgroundColor="red";
+		// 	changeColor(3000).then(()=>{
+		// 		red.style.backgroundColor="black";
+		// 		yellow.style.backgroundColor="yellow";
+		// 		return changeColor(1000)
+		// 	}).then(()=>{
+		// 		yellow.style.backgroundColor="black";
+		// 		green.style.backgroundColor="green";
+		// 		return changeColor(2000)
+		// 	}).then(()=>{
+		// 		green.style.backgroundColor="black";
+		// 		change()
+		// 	})
+		// })();
+
+		// callback版本
+
+		// (function change(){
+		// 	red.style.backgroundColor="red";
+		// 	setTimeout(() => {
+		// 		red.style.backgroundColor="black";
+		//  		yellow.style.backgroundColor="yellow";
+		//  		setTimeout(() => {
+		// 			yellow.style.backgroundColor="black";
+		// 			green.style.backgroundColor="green";
+		// 			setTimeout(()=>{
+		// 				green.style.backgroundColor="black";
+		// 				change()
+		// 			}, 1000)
+		// 		}, 2000)
+		// 	},3000)
+		// })();
+
+		// async await版本
+		(async function change(){
+			red.style.backgroundColor="red";
+			await changeColor(3000)
+			red.style.backgroundColor="black";
+			yellow.style.backgroundColor="yellow";
+			await changeColor(1000)
+			yellow.style.backgroundColor="black";
+			green.style.backgroundColor="green";
+			await changeColor(2000)
+			green.style.backgroundColor="black";
+			change()
+		})();
+		</script>
+</body>
+</html>
