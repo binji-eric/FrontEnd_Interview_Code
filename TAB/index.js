@@ -18,6 +18,7 @@ for(let i = 0; i < lis.length; i++) {
 
 $('content').onmouseenter = function() {
 	document.body.className = "mask"
+	
 }
 
 $('content').onmouseleave = function() {
