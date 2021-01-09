@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Input</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div>
+		<input type="text" name="name">
+		<input type="radio" name="">
+		<input type="button" value="this is button">
+		<input type="checkbox" name="">
+		<input type="file" name="">
+		<input type="reset" name="">
+		<input type="submit" name="">
+	</div>
+	<div>
+		<p id="showText"></p>
+	</div>
+	<div id="buttonCollection">
+		
+	</div>
+	<script type="text/javascript">
+		const elements = document.getElementsByTagName("input");
+		const showText = document.getElementById('showText');
+		const buttonCollection = document.getElementById('buttonCollection');
+		// oninput  当input的value值发生变化时就会触发，（与onchange的区别是不用等到失去焦点就可以触发了）
+		// onchange 当input失去焦点并且它的value值发生变化时触发
+
+		// onfocus  当input 获取到焦点时触发，和onBlur正好相反
+		// onblur 当input失去焦点时触发，注意：这个事件触发的前提是已经获取了焦点再失去焦点的时候才会触发该事件
+
+		// onkeydown 按下按键时的事件触发
+		// onkeyup 当按键抬起的时候触发的事件，在该事件触发之前一定触发了onkeydown事件
+
+		// onclick  主要是用于 input type=button，input作为一个按钮使用时的鼠标点击事件
+		// onselect  当input里的内容文本被选中后执行，只要选择了就会触发，不是全部选中
+		elements[0].onchange = function() {
+			console.log(this.value);
+			showText.innerHTML = this.value;
+		}
+
+		const fragment = document.createDocumentFragment();
+		for(let i = 0; i < 20; i++) {
+			const button = document.createElement("input");
+			button.type="button";
+			button.value= "index" + i;
+			button.id = 'index' + i;
+			fragment.appendChild(button);
+		}
+		buttonCollection.appendChild(fragment);
+		buttonCollection.onclick = function(e) {
+			if(e.target.type == "button") {
+				console.log(e.target.id);
+			}
+			// if(e.target.id)
+		}
+
+	</script>
+</body>
+</html>
