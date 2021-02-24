@@ -1,0 +1,27 @@
+<!-- https://www.cnblogs.com/yugege/p/6367833.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Preload</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<input type="file" id="file">
+	<img src="" id="img" height="200px" alt="Image preview area...">
+
+	<script type="text/javascript">
+		const file = document.getElementById('file'), img = document.getElementById('img');
+		file.addEventListener('change', function() {
+
+			const reader = new FileReader();
+			reader.addEventListener('load', function() {
+				img.src = reader.result;
+			}, false)
+			// 可以通过file.files获得上传文件，或者通过this.files
+			reader.readAsDataURL(file.files[0]);
+		}, false)
+	</script>
+</body>
+</html>

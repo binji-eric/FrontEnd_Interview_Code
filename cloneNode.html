@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test cloneNode</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<ul>
+		<li>item 1</li>
+		<li>item 2</li>
+		<li>item 3</li>
+	</ul>
+	<script type="text/javascript">
+		let deepList = document.getElementsByTagName('ul')[0].cloneNode(true);
+		console.log(deepList.childNodes.length);
+		console.log(deepList.childNodes)
+	</script>
+</body>
+</html>

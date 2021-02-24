@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body {
+			display: block
+		}
+		/*%方法*/
+		/*.square {
+			width: 50%;
+			height: 30px;
+			background-color: blue;
+			padding-top: 50%;
+		}*/
+
+		/*vw方法*/
+		/*.square {
+			width: 50vw;
+			height: 50vw;
+			background-color 包括content 和 padding
+			background-color: blue;
+		}*/
+		.square {
+		  width: 30%;
+		  overflow: hidden;
+		  background: yellow;
+		}
+
+		.square::after {
+		  content: '';
+		  display: block;
+		  margin-top: 100%;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="square"></div>
+</body>
+</html>
