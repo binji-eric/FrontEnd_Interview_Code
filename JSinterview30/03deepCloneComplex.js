@@ -1,8 +1,11 @@
 function deepCopy(source, map = new WeakMap()) {
+	// 引用对象
 	if(source instanceof Object) {
+		// 检查是否之前是否处理过，避免循环引用
 		if(map.has(source)) {
 			return map.get(source);
 		} else {
+			// 分别对应数组、函数、日期、正则、对象
 			let dist
 			if(source instanceof Array) {
 				dist = [];
@@ -17,8 +20,9 @@ function deepCopy(source, map = new WeakMap()) {
 			} else {
 				dist = {};
 			}
-			
+			// map中设置
 			map.set(source, dist);
+			// 针对对象 和 数组的情况
 			for(let key in source) {
 				if(source.hasOwnProperty(key)) {
 					dist[key] = deepCopy(source[key], map);
@@ -27,6 +31,7 @@ function deepCopy(source, map = new WeakMap()) {
 			return dist;
 		}
 	}
+	// 普通对象
 	return source;
 }
 
