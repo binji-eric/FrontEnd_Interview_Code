@@ -1,0 +1,51 @@
+body {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.outline {
+    width: 200px;
+    height: 600px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.light {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    border: 2px solid black;
+    margin: auto;
+}
+
+.greenLight {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    border: 2px solid black;
+    margin: auto;
+    background-color: green;
+}
+
+.redLight {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    border: 2px solid black;
+    margin: auto;
+    background-color: red;
+}
+
+.yellowLight {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    border: 2px solid black;
+    margin: auto;
+    background-color: yellow;
+}
