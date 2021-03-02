@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import TrafficLight from './trafficLight';
+import TrafficLight from './trafficLight/trafficLight.js';
+import ToDoList from './toDoList/ToDoList'
 function App() {
   return (
     <div className="App">
-      <TrafficLight/>
+      {/* <TrafficLight/> */}
+      <ToDoList/>
     </div>
   );
 }

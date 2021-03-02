@@ -1,6 +1,5 @@
-import { wait } from '@testing-library/react';
 import React, { Component } from 'react'
-import './trafficLight.css'
+import '../trafficLight/trafficLight.css'
 export default class trafficLight extends Component {
     constructor(props) {
         super(props);
