@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 
+        // 两侧absolute，中间relative + margin
+        .container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: white;
+        }
+        .left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: pink;
+        }
+        .right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100vh;
+            background-color: blue;
+        }
+        .center {
+            position: relative;
+            background-color: azure;
+            margin-left: 200px;
+            height: 100vh;
+            margin-right: 100px;
+        } */
+
+        .container {
+            display: flex;
+            background-color: azure;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            justify-content: flex-start;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .left {
+            text-align: center;
+            flex: 0 0 200px;
+            height: 100vh;
+            line-height:100vh;
+            background-color: pink;
+        }
+        .center {
+            text-align: center;
+            flex: 1 1 auto;
+            height: 100vh;
+            line-height:100vh;
+            background-color:yellow;
+        }
+        .right {
+            text-align: center;
+            flex: 0 0 100px;
+            height: 100vh;
+            line-height:100vh;
+            background-color: aqua;
+        } 
+
+        /* 
+        // float方法，不过需要leftDiv, rightDiv, centerDiv的排列方式
+        .container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: white;
+        }
+        .left {
+            float: left;
+            width: 200px;
+            height: 100vh;
+            background-color: pink;
+        }
+        .right {
+            float: right;
+            width: 100px;
+            height: 100vh;
+            background-color: blue;
+        }
+        .center {
+            background-color: aquamarine;
+            margin-left: 200px;
+            margin-right: 100px;
+            height: 100vh;
+        }  */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">left</div>
+        <div class="center">center</div>
+        <div class="right">right</div>
+    </div>
+</body>
+</html>
