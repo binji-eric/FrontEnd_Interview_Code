@@ -31,7 +31,6 @@ function countDownStart () {
    }
 //  }
 
-/*
 
  // 利用setTimeout实现setInteral
  function mySetInterval(fn, s) {
@@ -43,5 +42,6 @@ function countDownStart () {
  	}
  	timeout(fn, s);
  }
-*/
+
+ 
  // mySetInterval(() => {console.log('helllo every second')}, 1000)

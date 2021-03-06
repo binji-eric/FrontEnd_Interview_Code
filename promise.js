@@ -1,37 +1,37 @@
-// Promise.myAll = function(arr) {
-// 	if(!Array.isArray(arr)) {
-// 		throw new Error('input should be an array');
-// 	}
-// 	const res = [];
-// 	let count = 0;
-// 	return new Promise((resolve, reject) => {
-// 		arr.forEach((item) => {
-// 			Promise.resolve(item)
-// 			.then(data => {
-// 				res.push(data);
-// 				count++;
-// 				if(count == arr.length) {
-// 					resolve(res);
-// 				}
-// 			})
-// 			.catch((error) => {
-// 				reject(error);
-// 			})
-// 		})
-// 	})
-// }
+Promise.myAll = function(arr) {
+	if(!Array.isArray(arr)) {
+		throw new Error('input should be an array');
+	}
+	const res = [];
+	let count = 0;
+	return new Promise((resolve, reject) => {
+		arr.forEach((item) => {
+			Promise.resolve(item)
+			.then(data => {
+				res.push(data);
+				count++;
+				if(count == arr.length) {
+					resolve(res);
+				}
+			})
+			.catch((error) => {
+				reject(error);
+			})
+		})
+	})
+}
 
-// var promise1 = Promise.resolve(3);
-// var promise2 = 42;
-// var promise3 = new Promise(function(resolve, reject) {
-//   setTimeout(resolve, 100, 'foo');
-// });
+var promise1 = Promise.resolve(3);
+var promise2 = 42;
+var promise3 = new Promise(function(resolve, reject) {
+  setTimeout(resolve, 100, 'foo');
+});
 
-// Promise.myAll(promise1).then(function(values) {
-//   console.log(values);
-// }).catch((e) => {
-//   console.log(e)
-// })
+Promise.myAll(promise1).then(function(values) {
+  console.log(values);
+}).catch((e) => {
+  console.log(e)
+})
 
 function myPromise(executor) {
   // let _this = this;

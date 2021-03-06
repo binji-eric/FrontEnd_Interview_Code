@@ -9,6 +9,7 @@
 		<input type="button" name="" id="add" value ="添加">
 		<input type="button" name="" id="remove" value="移除">
 		<input type="button" name="" id="update" value="更新">
+		<button value="hello">hello</button>
 	</div>
 
 	<script type="text/javascript">
@@ -33,7 +34,7 @@
 		// 方法3
 		var func = function(e) {
 			var target = e.target;
-			if(target.nodeName.toLowerCase() == 'input') {
+			if(target.nodeName.toLowerCase() == 'input' || 'button') {
 				// console.log(target)
 				alert(target.value);
 			}
