@@ -1,5 +1,6 @@
 // 观察者需要放到被观察者中，被观察者的状态变化需要通知观察者 我变化了 内部也是基于发布订阅模式，收集观察者，状态变化后要主动通知观察者
 
+// 被观察者
 class Subject {
 	constructor(name) {
 		this.state = 'happy';
@@ -16,7 +17,7 @@ class Subject {
 		this.observers.forEach(observer => observer.update(this))
 	}
 }
-
+// 观察者
 class Observer {
 	constructor(name) {
 		this.name = name;

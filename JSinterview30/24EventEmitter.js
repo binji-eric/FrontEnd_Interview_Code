@@ -8,7 +8,7 @@ class Emitter {
 		}
 		this.events[eventName].push(callback);
 	}
-	emit(eventName, callback) {
+	emit(eventName) {
 		this.events[eventName] && this.events[eventName].forEach(cb => cb());
 	}
 }

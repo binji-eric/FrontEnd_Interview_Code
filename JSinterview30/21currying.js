@@ -8,7 +8,7 @@ function curry(fn) {
     const allArgs = [...presetArgs, ...restArgs]
     return curry.call(null, fn, ...allArgs)
   }
-  // 重写toString
+  // 重写toString, 最终输出的一步，也就是执行fn
   curried.toString = function() {
     return fn.apply(null, presetArgs)
   }
