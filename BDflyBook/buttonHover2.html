@@ -1,0 +1,36 @@
+<!-- 1.实现一个滑动按钮，鼠标悬浮时自动向右滑动
+要求1.只使用一个dom元素  2.按钮宽度要与父元素自适应 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .demo {
+        width: 20%;
+        height: 50px;
+        position: relative;
+        background-color: teal;
+      }
+      .demo::after {
+        content: '';
+        height: 100%;
+        width: 20%;
+        background-color: tomato;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: left 2s;
+      }
+      .demo:hover::after {
+        left: 80%;       
+      }
+    </style>
+</head>
+<body>
+    <button class="demo"></button>
+</body>
+</html>

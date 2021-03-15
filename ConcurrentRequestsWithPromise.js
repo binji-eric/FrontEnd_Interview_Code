@@ -32,7 +32,7 @@ var p1 = function() {
     });
 }
 
-p.then(() => {
+p().then(() => {
     return p1()
 }).then(() => {
     return p2()

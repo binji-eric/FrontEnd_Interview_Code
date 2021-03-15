@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            position: relative;
+            margin: auto;
+            border-radius: 10px;
+            width: 300px;
+            box-sizing: border-box;
+            height: 30px;
+            background-color: antiquewhite;
+            line-height: 30px;
+            padding-left: 0px;
+            transition: padding-left 2s ease;
+        }
+        .content {
+            background-color: aqua;
+            width: 60px;
+            border-radius: 10px;
+        }
+        .wrapper:hover {
+            padding-left: 240px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <button class="content">Hello world</button>
+    </div>
+</body>
+</html>
